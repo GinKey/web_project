@@ -1,0 +1,293 @@
+.canvas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 600px;
+  background-image: url("https://thumbs.dreamstime.com/b/dwarsdoorsnede-van-gras-en-grond-118964196.jpg");
+  background-size: cover;
+  resize: both;
+  overflow: scroll;
+
+}
+.trunk,
+.branch {
+  border-radius: 25px;
+  background: linear-gradient(to right, #7f3333, #4d2020);
+}
+.trunk {
+  position: relative;
+
+  width: 10px;
+  height: 500px;
+  margin: 0 auto;
+}
+
+.branch {
+  position: absolute;
+
+  width: 5px;
+}
+.branch:nth-child(even) {
+  transform: rotate(60deg);
+}
+
+.branch:nth-child(odd) {
+  transform: rotate(-60deg);
+}
+
+.branch {
+  position: absolute;
+
+  width: 5px;
+
+  transform-origin: bottom center;
+}
+
+.branch:nth-child(1) {
+  top: 180px;
+
+  height: 180px;
+}
+
+.branch:nth-child(2) {
+  top: 160px;
+
+  height: 150px;
+}
+
+.branch:nth-child(3) {
+  top: 140px;
+
+  height: 150px;
+}
+
+.branch:nth-child(4) {
+  top: 120px;
+
+  height: 120px;
+}
+
+.branch:nth-child(5) {
+  top: 80px;
+
+  height: 120px;
+}
+
+.branch:nth-child(6) {
+  top: 80px;
+
+  height: 90px;
+}
+
+.branch:nth-child(7) {
+  top: 40px;
+
+  height: 60px;
+}
+.branch:nth-child(8) {
+  top: 30px;
+
+  height: 50px;
+}
+
+
+
+.leaf {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 75% 0 75% 0;
+  background: linear-gradient(to right, #77ed9e, #53ad71);
+}
+
+.leaf:nth-child(1) {
+  top: 5px;
+}
+.leaf:nth-child(2) {
+  top: 20px;
+}
+.leaf:nth-child(3) {
+  top: 35px;
+}
+.leaf:nth-child(4) {
+  top: 50px;
+}
+.leaf:nth-child(5) {
+  top: 65px;
+}
+.leaf:nth-child(6) {
+  top: 80px;
+}
+.leaf:nth-child(7) {
+  top: 95px;
+}
+.leaf:nth-child(8) {
+  top: 110px;
+}
+.leaf:nth-child(9) {
+  top: 135px;
+}
+
+
+@keyframes leaf-odd-grow {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.leaf:nth-child(odd) {
+  left: 100%;
+  transform-origin: 0% 100%;
+  animation-name: leaf-odd-grow;
+  animation-duration: 4s;
+  animation-fill-mode: both;
+}
+
+@keyframes leaf-even-grow {
+  0% {
+    transform: rotate(-90deg) scale(0);
+  }
+  100% {
+    transform: rotate(-90deg) scale(1);
+  }
+}
+.leaf:nth-child(even) {
+  left: -150%;
+  transform-origin: 50% 100%;
+  animation-name: leaf-even-grow;
+  animation-duration: 4s;
+  animation-fill-mode: both;
+}
+
+.leaf:nth-child(1) {
+  top: 5px;
+  animation-delay: 3.5s;
+}
+.leaf:nth-child(2) {
+  top: 20px;
+  animation-delay: 3s;
+}
+.leaf:nth-child(3) {
+  top: 50px;
+  animation-delay: 2.5s;
+}
+
+.cloud {
+    overflow: hidden;
+    position: absolute;
+    width:100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    background: url(mountain.jpg);
+    background-size: cover;
+}
+.cloudcontent {
+    position: absolute;
+    padding:30px;
+    color: #337AB7;
+    font-size:22px;
+    font-weight:bold;
+    z-index:100;
+}
+.cloud img {
+    width: 50%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+@-webkit-keyframes animCloud {
+    from {
+        -webkit-transform: translateX(100%)
+    }
+    to {
+        -webkit-transform: translateX(-150%)
+    }
+}
+@-moz-keyframes animCloud {
+    from {
+        -moz-transform: translateX(100%)
+    }
+    to {
+        -moz-transform: translateX(-100%)
+    }
+}
+@keyframes animCloud {
+    from {
+        -webkit-transform: translateX(100%);
+        -moz-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+        -o-transform: translateX(100%);
+        transform: translateX(100%)
+    }
+    to {
+        -webkit-transform: translateX(-100%);
+        -moz-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+        -o-transform: translateX(-100%);
+        transform: translateX(-100%)
+    }
+}
+.cloud1 {
+    -webkit-animation: animCloud 20s infinite linear;
+    -moz-animation: animCloud 20s infinite linear;
+    animation: animCloud 20s infinite linear
+}
+.cloud2 {
+    -webkit-animation: animCloud 40s infinite linear;
+    -moz-animation: animCloud 40s infinite linear;
+    animation: animCloud 40s infinite linear
+}
+.cloud3 {
+    -webkit-animation: animCloud 60s infinite linear;
+    -moz-animation: animCloud 60s infinite linear;
+    animation: animCloud 60s infinite linear
+}
+
+
+.flowers {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+
+  border-radius: 100% 0 20% 0;
+  background: linear-gradient(to left, #DD5C31, #C16449);
+}
+
+.petal:before,
+.petal:after {
+  content: "";
+  display: block;
+  }
+
+.petal {
+  position: absolute;
+  right: .5em;
+  bottom: 50px;
+  width: 3em;
+  height: 3em;
+  margin: 2em 7em;
+  background: crimson;
+  border-radius: 100% 0;
+  box-shadow: -3em 3em crimson;
+}
+
+.petal:before {
+  position: absolute;
+  left: -12em;
+  top: -2em;
+  width: 3em;
+  height: 3em;
+  margin: 2em 7em;
+  background: crimson;
+  border-radius: 0 100%;
+  box-shadow: -3em 3em crimson;
+  }

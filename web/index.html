@@ -40,30 +40,26 @@
 
 <script>
     const productInfo = {
-        name: "Подписка Плюс Мульти с Амедиатекой",
-        duration: "12 месяцев",
-        access: "Полный каталог фильмов и сериалов на Кинопоиске",
-        services: "Музыкальный стриминг Яндекс Музыка и кешбэк баллами в сервисах Яндекса",
-        devices: "Просмотр на компьютере, Смарт ТВ, смартфоне или планшете"
+        Название: "Подписка Плюс Мульти с Амедиатекой",
+        Продолжительность: "12 месяцев",
+        Доступ: "Полный каталог фильмов и сериалов на Кинопоиске",
+        Сервис: "Музыкальный стриминг Яндекс Музыка и кешбэк баллами в сервисах Яндекса",
+        Девайсы: "Просмотр на компьютере, Смарт ТВ, смартфоне или планшете"
     };
 
+    let count = 0
     const productDescription = document.getElementById("productInfo");
     for (const key in productInfo) {
         const value = productInfo[key];
         const line = document.createElement("p");
-        line.textContent = `${key}: ${value}`;
-        productDescription.appendChild(line);
-    }
-
-    const lines = productDescription.getElementsByTagName("p");
-    for (let i = 0; i < lines.length; i++) {
-        if (i < 3) {
-            lines[i].classList.add("display-line");
-        } else {
-            lines[i].classList.add("display-none");
+        if (count<3){
+            line.textContent = `${key}: ${value}`;
+            productDescription.appendChild(line);
         }
+        count++;
     }
 </script>
+
 
 </body>
 </html>

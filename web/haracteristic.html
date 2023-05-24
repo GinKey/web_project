@@ -9,15 +9,52 @@
     <title>haracteristic</title>
 </head>
 <body>
-    <h2>Характеристики товара</h2>
-    <ul>
-        <li>Производитель: Яндекс</li>
-        <li>Применение: оплата подписки</li>
-        <li>Назначение: аудиокниги, музыка, онлайн-кинотеатр</li>
-        <li>Название сервиса: Amediateka, more.tv, Кинопоиск, Яндекс Плюс, Яндекс.Музыка</li>
-        <li>Продолжительность подписки: 12 месяцев</li>
-        <li>Форма выпуска:электронный ключ</li>
-    </ul>
-    <hr>Все права защищены
+<h2>Характеристики товара</h2>
+<ul id="productInfo">
+</ul>
+<hr>Все права защищены
+
+<script>
+    function Product(name, duration, access, services, devices) {
+        this.name = name;
+        this.duration = duration;
+        this.access = access;
+        this.services = services;
+        this.devices = devices;
+
+        this.displayInfo = function() {
+            const productInfo = document.getElementById("productInfo");
+
+            const nameElement = document.createElement("li");
+            nameElement.textContent = `Название: ${this.name}`;
+            productInfo.appendChild(nameElement);
+
+            const durationElement = document.createElement("li");
+            durationElement.textContent = `Продолжительность: ${this.duration}`;
+            productInfo.appendChild(durationElement);
+
+            const accessElement = document.createElement("li");
+            accessElement.textContent = `Доступ: ${this.access}`;
+            productInfo.appendChild(accessElement);
+
+            const servicesElement = document.createElement("li");
+            servicesElement.textContent = `Сервисы: ${this.services}`;
+            productInfo.appendChild(servicesElement);
+
+            const devicesElement = document.createElement("li");
+            devicesElement.textContent = `Устройства: ${this.devices}`;
+            productInfo.appendChild(devicesElement);
+        };
+    }
+
+    let myProduct = new Product(
+        "Подписка Плюс Мульти с Амедиатекой",
+        "12 месяцев",
+        "Полный каталог фильмов и сериалов на Кинопоиске",
+        "Музыкальный стриминг Яндекс Музыка и кешбэк баллами в сервисах Яндекса",
+        "Просмотр на компьютере, Смарт ТВ, смартфоне или планшете"
+    );
+    myProduct.displayInfo();
+</script>
 </body>
 </html>

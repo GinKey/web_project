@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Задачи на JavaScript</title>
+    <meta charset="UTF-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+</head>
+<body>
+
+    <h3>Задание 1</h3>
+    <input type="text" id="input1" placeholder="Введите строку">
+    <button onclick="checkPalindrome()">Вывод</button>
+    <div id="result1"></div>
+    <script>
+        function checkPalindrome() {
+            let input = document.getElementById("input1").value;
+            let reversed = input.split("").reverse().join("");
+
+            if (input === reversed) {
+                document.getElementById("result1").textContent = "Строка палиндром";
+            } else {
+                document.getElementById("result1").textContent = "Строка не является палиндром";
+            }
+        }
+    </script>
+
+    <h3>Задание 2</h3>
+    <input type="text" id="input2" placeholder="Введите массив значений">
+    <button onclick="manipulateArray()">Решение</button>
+    <div id="result2"></div>
+    <script>
+        function manipulateArray() {
+            let input = document.getElementById("input2").value;
+            let numbers = input.split(",").map(Number);
+
+            for (let i = 0; i < numbers.length; i++) {
+            if (numbers[i] < 0) {
+                numbers[i] = Math.pow(numbers[i], 2);
+                }
+            }
+            document.getElementById("result2").textContent = "Модифицированный массив: " + numbers.join(", ");
+        }
+    </script>
+
+    <h3>Задание 3</h3>
+    <input type="text" id="nameInput" placeholder="Введите свое имя">
+    <button onclick="displayUser()">Вывод пользователя</button>
+    <div id="userDisplay"></div>
+
+    <script>
+        class User {
+            constructor(name) {
+                this.name = name;
+            }
+            displayUserName() {
+                document.getElementById("userDisplay").textContent = `User Name: ${this.name}`;
+            }
+        }
+
+        function displayUser() {
+            const name = document.getElementById("nameInput").value;
+            const user = new User(name);
+            user.displayUserName();
+        }
+
+    </script>
+
+    <h3>Задание 4</h3>
+    <button id="showMessageBtn">Решение</button>
+
+    <script>
+        class User2 {
+            constructor(name) {
+                this.name = name;
+            }
+
+            showMessage() {
+                let message = "Привет " + this.name;
+                alert(message);
+            }
+        }
+
+        function showUserMessage() {
+            let userName = "Вася";
+            let user = new User2(userName);
+            user.showMessage();
+        }
+
+        const showMessageBtn = document.getElementById("showMessageBtn");
+        showMessageBtn.addEventListener("click", showUserMessage);
+    </script>
+
+
+    <h3>Задание 5</h3>
+    <input type="text" id="Input5" placeholder="Введите имя">
+    <button onclick="reverseName()">Перевернуть</button>
+    <div id="result5"></div>
+
+    <script>
+        class NameReverser {
+            constructor(name) {
+                this.name = name;
+            }
+
+            reverseName() {
+                return this.name.split("").reverse().join("");
+            }
+        }
+
+        function reverseName() {
+            const inputElement = document.getElementById("Input5");
+            const name = inputElement.value;
+
+            const nameReverser = new NameReverser(name);
+            const reversedName = nameReverser.reverseName();
+
+            const resultElement = document.getElementById("result5");
+            resultElement.textContent = `Развернутое имя: ${reversedName}`;
+        }
+    </script>
+
+    <h3>Калькулятор</h3>
+    <input type="number" id="num1" placeholder="Введите число">
+    <input type="number" id="num2" placeholder="Введите число">
+    <button onclick="add()">Сложить</button>
+    <button onclick="subtract()">Вычесть</button>
+    <div id="resultcal"></div>
+
+    <script>
+        const add = () => {
+            const num1 = Number(document.getElementById("num1").value);
+            const num2 = Number(document.getElementById("num2").value);
+            const result = num1 + num2;
+            displayResult(result);
+        };
+
+        const subtract = () => {
+            const num1 = Number(document.getElementById("num1").value);
+            const num2 = Number(document.getElementById("num2").value);
+            const result = num1 - num2;
+            displayResult(result);
+        };
+
+        const displayResult = (result) => {
+            const resultElement = document.getElementById("resultcal");
+            resultElement.textContent = `Результат: ${result}`;
+        };
+    </script>
+
+</body>
+</html>

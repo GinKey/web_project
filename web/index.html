@@ -5,29 +5,65 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
-    <link href="style.css" type="text/css"  rel="stylesheet">
     <title>plus_market</title>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/css/bootstrap.min.css">
+    <link href="style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-<main>
-    <h1>Подписка Плюс Мульти с Амедиатекой (12 месяцев)</h1>
-    <p><img src="https://avatars.mds.yandex.net/get-marketpic/8794830/pic108b69c4462d8754368f771d5ceb679a/orig" width="400" height="411"></p>
-    <h2>Описание товара</h2>
-    <p class="shot-desc">Плюс Мульти с Амедиатекой открывает доступ к самому полному каталогу фильмов и сериалов на Кинопоиске.
-        А также к музыкальному стримингу Яндекс Музыка и кешбэку баллами в сервисах Яндекса.
-        Все это в одной подписке и сразу для четырёх человек.
-        При этом у всех будут собственные аккаунты, рекомендации и баллы.
-        Смотрите и слушайте на компьютере и Смарт ТВ — онлайн, а на смартфоне или планшете —
-        даже без интернета при условии предварительного скачивания контента.</p>
-    <a href="description.html">Подробнее</a>
-    <h2>Характеристики товара</h2>
-    <p>Продолжительность подписки: 12 месяцев</p>
-    <a href="haracteristic.html">Подробнее</a>
-    <hr>Все права защищены
-
-
+<main class="container">
+    <h1 class="mt-5">Подписка Плюс Мульти с Амедиатекой (12 месяцев)</h1>
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <img src="https://avatars.mds.yandex.net/get-marketpic/8794830/pic108b69c4462d8754368f771d5ceb679a/orig" class="img-fluid rounded" width="400px" height="400px" alt="Product Image">
+        </div>
+        <div class="col-md-6">
+            <h2>Описание товара</h2>
+            <p class="shot-desc">Плюс Мульти с Амедиатекой открывает доступ к самому полному каталогу фильмов и сериалов на Кинопоиске.
+                А также к музыкальному стримингу Яндекс Музыка и кешбэку баллами в сервисах Яндекса.
+                Все это в одной подписке и сразу для четырёх человек.
+                При этом у всех будут собственные аккаунты, рекомендации и баллы.
+                Смотрите и слушайте на компьютере и Смарт ТВ — онлайн, а на смартфоне или планшете —
+                даже без интернета при условии предварительного скачивания контента.</p>
+            <a href="description.html" class="btn btn-primary">Подробнее</a>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <h2>Характеристики товара</h2>
+            <div id="productInfo"></div>
+            <a href="haracteristic.html" class="btn btn-primary">Подробнее</a>
+        </div>
+    </div>
+    <hr>
+    <p class="text-center">Все права защищены</p>
 </main>
+
+<script>
+    const productInfo = {
+        name: "Подписка Плюс Мульти с Амедиатекой",
+        duration: "12 месяцев",
+        access: "Полный каталог фильмов и сериалов на Кинопоиске",
+        services: "Музыкальный стриминг Яндекс Музыка и кешбэк баллами в сервисах Яндекса",
+        devices: "Просмотр на компьютере, Смарт ТВ, смартфоне или планшете"
+    };
+
+    const productDescription = document.getElementById("productInfo");
+    for (const key in productInfo) {
+        const value = productInfo[key];
+        const line = document.createElement("p");
+        line.textContent = `${key}: ${value}`;
+        productDescription.appendChild(line);
+    }
+
+    const lines = productDescription.getElementsByTagName("p");
+    for (let i = 0; i < lines.length; i++) {
+        if (i < 3) {
+            lines[i].classList.add("display-line");
+        } else {
+            lines[i].classList.add("display-none");
+        }
+    }
+</script>
 
 </body>
 </html>
